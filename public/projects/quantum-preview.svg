@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Quantum AI Drive concept preview</title>
+  <desc id="desc">Concept graphic for an AI and quantum proof of location project.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#11132d"/><stop offset="1" stop-color="#071a2e"/></linearGradient>
+    <linearGradient id="line"><stop stop-color="#8b5cf6"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="12" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1200" height="675" rx="30" fill="url(#bg)"/>
+  <circle cx="850" cy="335" r="190" fill="#22d3ee" opacity=".08"/>
+  <ellipse cx="850" cy="335" rx="250" ry="100" fill="none" stroke="url(#line)" stroke-width="3" transform="rotate(-32 850 335)" opacity=".8"/>
+  <ellipse cx="850" cy="335" rx="250" ry="100" fill="none" stroke="#22d3ee" stroke-width="2" transform="rotate(32 850 335)" opacity=".55"/>
+  <circle cx="850" cy="335" r="12" fill="#fff" filter="url(#glow)"/>
+  <path d="M850 255c-39 0-70 31-70 70 0 52 70 122 70 122s70-70 70-122c0-39-31-70-70-70zm0 96a26 26 0 1 1 0-52 26 26 0 0 1 0 52z" fill="url(#line)"/>
+  <rect x="90" y="82" width="130" height="38" rx="19" fill="#8b5cf6" opacity=".22"/>
+  <text x="115" y="107" fill="#c4b5fd" font-family="Arial,sans-serif" font-size="18" letter-spacing="2">CONCEPT PREVIEW</text>
+  <text x="90" y="245" fill="#fff" font-family="Arial,sans-serif" font-size="56" font-weight="700">Quantum AI Drive</text>
+  <text x="90" y="305" fill="#a5f3fc" font-family="Arial,sans-serif" font-size="30">Proof of Location</text>
+  <text x="90" y="380" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="22">AI · Machine Learning · Quantum Computing</text>
+  <path d="M90 435h350" stroke="url(#line)" stroke-width="4" stroke-linecap="round"/>
+  <text x="90" y="500" fill="#94a3b8" font-family="Arial,sans-serif" font-size="20">Location spoofing prevention research project</text>
+</svg>
