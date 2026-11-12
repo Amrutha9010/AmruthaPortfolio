@@ -6,7 +6,7 @@ import Loader from './components/Loader'
 import Cursor from './components/Cursor'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
-import { About, Experience, Projects, Skills, Achievements } from './components/Sections'
+import { About, Education, Experience, Projects, Skills, Achievements } from './components/Sections'
 import Contact from './components/Contact'
 gsap.registerPlugin(ScrollTrigger)
 const Scene = lazy(() => import('./components/Scene')) // 3D loads only after first paint
@@ -28,7 +28,7 @@ export default function App() {
     <div className="mesh" /><Cursor /><Nav />
     <main>
       <Hero ready={ready} scene={<Suspense fallback={null}><Scene /></Suspense>} />
-      <About /><Experience /><Projects /><Skills />{/* <Services /> */}<Achievements /><Contact />
+      <About /><Education /><Experience /><Projects /><Skills />{/* <Services /> */}<Achievements /><Contact />
     </main>
     <footer className="py-8 text-center text-sm text-white/50">© {new Date().getFullYear()} Amrutha Chappa</footer>
   </>)

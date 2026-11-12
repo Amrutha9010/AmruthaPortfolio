@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
 import { motion, animate, useInView, AnimatePresence } from 'framer-motion'
-import { profile, counters, orbit, experience, projects, skills, services, achievements } from '../data'
+import { profile, counters, orbit, experience, education, projects, skills, services, achievements } from '../data'
 import Magnetic from './Magnetic'
 
 const fade = { hidden: { opacity: 0, y: 40 }, show: i => ({ opacity: 1, y: 0, transition: { delay: i * .1, duration: .6 } }) }
@@ -50,6 +50,17 @@ export const Experience = () => (
     </div>
   </Section>)
 
+export const Education = () => (
+  <Section id="education" title="Education">
+    <div className="grid gap-4 md:grid-cols-2">
+      {education.map(e => <Reveal key={e.institution} className="glass p-6">
+        <h3 className="text-xl font-bold">{e.degree}</h3>
+        <p className="mt-2 text-cyan-300">{e.institution}</p>
+        <p className="mt-1 text-sm text-white/70">{e.location} · {e.status}</p>
+      </Reveal>)}
+    </div>
+  </Section>)
+
 function Tilt({ children, className, ...p }) { // 3D tilt on hover
   const r = useRef()
   const mv = e => { const b = r.current.getBoundingClientRect(), x = (e.clientX - b.left) / b.width - .5, y = (e.clientY - b.top) / b.height - .5
@@ -74,9 +85,13 @@ export function Projects() {
         <h3 className="text-2xl font-bold">{open.title}</h3>
         <p className="mt-3 text-white/80">{open.desc}</p>
         <div className="mt-4 flex flex-wrap gap-2">{open.stack.map(s => <span key={s} className="glass px-3 py-1 text-xs">{s}</span>)}</div>
-        <div className="mt-4 grid gap-3">{open.images.map(src => <img key={src} src={src} alt="" loading="lazy" className="rounded-lg" />)}</div>
-        <div className="mt-6 flex gap-3"><a className="btn" href={open.github} target="_blank" rel="noreferrer">GitHub</a>
-          <a className="btn btn-ghost" href={open.live} target="_blank" rel="noreferrer">Live</a>
+        <h4 className="mt-5 font-bold">Key features</h4>
+        <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-white/80">{open.features.map(feature => <li key={feature}>{feature}</li>)}</ul>
+        <h4 className="mt-5 font-bold">My contribution</h4>
+        <p className="mt-2 text-sm text-white/80">{open.contribution}</p>
+        <div className="mt-4 grid gap-3">{open.images.map(src => <img key={src} src={src} alt={`${open.title} project screenshot`} loading="lazy" className="rounded-lg" />)}</div>
+        <div className="mt-6 flex flex-wrap gap-3"><a className="btn" href={`mailto:${profile.email}?subject=${encodeURIComponent(`Source code request: ${open.title}`)}`}>Request Source Code</a>
+          {open.live && <a className="btn btn-ghost" href={open.live} target="_blank" rel="noreferrer">Live Demo</a>}
           <button className="ml-auto text-white/60" onClick={() => setOpen(null)}>Close</button></div>
       </motion.div></motion.div>}</AnimatePresence>
   </Section>)

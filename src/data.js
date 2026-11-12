@@ -5,7 +5,6 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/amrutha-chappa-1ba557292/',
   github: 'https://github.com/Amrutha9010', leetcode: 'https://leetcode.com/u/AmruthaChappa/',
   resume: '/resume.pdf', // TODO: put your resume PDF at public/resume.pdf
-  formspree: 'https://formspree.io/f/YOUR_FORM_ID', // TODO: your Formspree endpoint
   roles: ['Full Stack Developer', 'MERN Stack Engineer', 'AI & ML Student'],
   // TODO: paste your own career objective here
   about: 'Final-year B.Tech AI & ML student at SRKR Engineering College, Bhimavaram, building full stack MERN applications. Looking for SDE internships and freelance projects for small businesses.',
@@ -19,15 +18,28 @@ export const experience = [{
   role: 'Full Stack Developer Intern', company: 'YugantaAI', period: 'May – Jul 2026',
   points: ['Built MERN applications', 'Developed JWT-secured REST APIs', 'Optimized MongoDB schemas'],
 }]
+export const education = [{
+  degree: 'B.Tech in Artificial Intelligence & Machine Learning',
+  institution: 'SRKR Engineering College',
+  location: 'Bhimavaram',
+  status: 'Final-year student',
+}]
 export const projects = [
   { title: 'KRR BrightMinds School Management System', stack: ['React', 'Node', 'Express', 'MongoDB', 'Tailwind'],
     desc: 'Admissions, hostel, transport and fee collection, with dashboards for admins, students and parents.',
-    images: ['/projects/krr-1.png', '/projects/krr-2.png', '/projects/krr-3.png'], github: '#', live: '#' },
+    features: ['Admissions and student management', 'Hostel and transport management', 'Fee collection', 'Admin, student, and parent dashboards'],
+    contribution: 'Full-stack development across the application UI, REST APIs, and MongoDB data models.',
+    images: ['/projects/krr-1.png', '/projects/krr-2.png', '/projects/krr-3.png'], live: null },
   { title: 'HostelBuddy', stack: ['Vue.js', 'Express', 'Node', 'MongoDB'],
     desc: 'Room applications, automated allocation, fee tracking and real-time updates.',
-    images: ['/projects/hb-1.png', '/projects/hb-2.png'], github: '#', live: '#' },
+    features: ['Room applications', 'Automated room allocation', 'Fee tracking', 'Real-time updates'],
+    contribution: 'Full-stack development across the Vue.js interface, Express APIs, and MongoDB data.',
+    images: ['/projects/hb-1.png', '/projects/hb-2.png'], live: null },
   { title: 'Quantum AI Drive: Quantum Proof of Location', stack: ['Python', 'Qiskit', 'ML'],
-    desc: 'AI-based location spoofing prevention.', images: [], github: '#', live: '#' },
+    desc: 'AI-based location spoofing prevention.',
+    features: ['Location spoofing prevention using AI', 'Quantum proof-of-location exploration'],
+    contribution: 'Contributed to the AI and quantum computing proof-of-location project.',
+    images: ['/projects/quantum-preview.svg'], live: null },
 ]
 export const skills = {
   Languages: ['JavaScript', 'Java', 'Python', 'SQL', 'C'],

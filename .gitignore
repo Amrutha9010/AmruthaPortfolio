@@ -1,2 +1,12 @@
-node_modules
-dist
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+.vercel/
+credentials/
+private/
+secrets/
+*.pem
+*.key
+*credentials*.json
