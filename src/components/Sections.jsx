@@ -23,19 +23,30 @@ function Counter({ to, dec = 0, prefix = '', suffix = '' }) {
 
 export const About = () => (
   <Section id="about" title="About">
-    <div className="grid items-center gap-12 md:grid-cols-2">
+    <div className="grid items-center gap-12 lg:grid-cols-2">
+      {/* Photo (wrapped in Reveal) with the CSS tech-stack orbit around it on desktop.
+          On mobile the orbit is hidden and the photo stacks first. */}
+      <Reveal i={2} className="relative mx-auto flex flex-col items-center md:h-[30rem] md:w-[28rem] md:justify-center">
+        <div className="orbit-ring pointer-events-none absolute inset-0 z-20 hidden md:block">
+          {orbit.map((t, k) => { const a = (k / orbit.length) * 2 * Math.PI
+            return <span key={t} className="glass orbit-chip pointer-events-auto absolute border-white/15 bg-white/5 px-3 py-1 text-xs"
+              style={{ left: `${50 + 50 * Math.cos(a)}%`, top: `${50 + 50 * Math.sin(a)}%`, transform: 'translate(-50%, -50%)' }}>
+              <span className="orbit-chip-label">{t}</span>
+            </span> })}
+        </div>
+        <Tilt className="glass w-56 p-2 shadow-[0_0_40px_rgba(139,92,246,.35)] md:absolute md:left-1/2 md:top-1/2 md:z-10 md:w-64 md:-translate-x-1/2 md:-translate-y-1/2">
+          <img src={profile.photo} alt="Amrutha Chappa" width="1122" height="1402" loading="lazy"
+            className="aspect-[4/5] w-full rounded-2xl object-cover" />
+        </Tilt>
+        <div className="mt-4 flex flex-wrap justify-center gap-2 md:hidden">
+          {orbit.map(t => <span key={t} className="glass orbit-chip border-white/15 bg-white/5 px-3 py-1 text-xs">{t}</span>)}
+        </div>
+      </Reveal>
       <Reveal><p className="text-lg leading-relaxed text-white/80">{profile.about}</p>
         <div className="mt-8 grid grid-cols-2 gap-4">
           {counters.map(c => <div key={c.label} className="glass p-5">
             <div className="grad font-head text-3xl font-bold"><Counter {...c} /></div>
             <div className="text-sm text-white/60">{c.label}</div></div>)}
-        </div></Reveal>
-      {/* Lightweight CSS orbit (cheap on phones) */}
-      <Reveal i={2} className="relative mx-auto h-72 w-72">
-        <div className="glass absolute inset-[38%] grid place-items-center text-xs">Stack</div>
-        <div className="absolute inset-0" style={{ animation: 'orbit 24s linear infinite' }}>
-          {orbit.map((t, k) => { const a = (k / orbit.length) * 2 * Math.PI
-            return <span key={t} className="glass absolute px-3 py-1 text-xs" style={{ left: `${45 + 45 * Math.cos(a)}%`, top: `${46 + 46 * Math.sin(a)}%` }}>{t}</span> })}
         </div></Reveal>
     </div>
   </Section>)
@@ -63,7 +74,8 @@ export const Education = () => (
 
 function Tilt({ children, className, ...p }) { // 3D tilt on hover
   const r = useRef()
-  const mv = e => { const b = r.current.getBoundingClientRect(), x = (e.clientX - b.left) / b.width - .5, y = (e.clientY - b.top) / b.height - .5
+  const mv = e => { if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const b = r.current.getBoundingClientRect(), x = (e.clientX - b.left) / b.width - .5, y = (e.clientY - b.top) / b.height - .5
     r.current.style.transform = `perspective(800px) rotateY(${x * 14}deg) rotateX(${-y * 14}deg)` }
   return <div ref={r} onMouseMove={mv} onMouseLeave={() => (r.current.style.transform = '')} className={`transition-transform duration-150 ${className}`} {...p}>{children}</div>
 }

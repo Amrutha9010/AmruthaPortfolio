@@ -12,6 +12,8 @@ export default function Contact() {
   const inp = 'w-full rounded-lg border border-white/15 bg-white/5 p-3 outline-none focus:border-cyan-300'
   return (
     <section id="contact" className="mx-auto max-w-3xl px-6 py-16">
+      <img src={profile.photo} alt="Amrutha Chappa" width="1122" height="1402" loading="lazy"
+        className="mb-4 h-16 w-16 rounded-full border-2 border-violet-400 object-cover object-top" />
       <h2 className="grad mb-8 text-4xl font-extrabold md:text-5xl">Contact</h2>
       <form onSubmit={submit} className="glass grid gap-4 p-6">
         <input name="name" required placeholder="Name" className={inp} />

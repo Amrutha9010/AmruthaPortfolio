@@ -1,6 +1,7 @@
 // ===== EDIT YOUR CONTENT HERE =====
 export const profile = {
   name: 'Amrutha Chappa', email: 'amruthachappa@gmail.com', phone: '+91-9010777738',
+  photo: '/projects/profile.jpeg',
   whatsapp: '919010777738', whatsappMsg: 'Hi Amrutha, I found your portfolio and would like to discuss a project.',
   linkedin: 'https://www.linkedin.com/in/amrutha-chappa-1ba557292/',
   github: 'https://github.com/Amrutha9010', leetcode: 'https://leetcode.com/u/AmruthaChappa/',

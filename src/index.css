@@ -6,11 +6,19 @@ h1,h2,h3,.font-head{font-family:Sora,sans-serif}
 .grad{background:linear-gradient(90deg,var(--violet),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
 .glass{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(14px);border-radius:1.25rem;transition:box-shadow .3s,border-color .3s}
 .glass:hover{border-color:rgba(139,92,246,.6);box-shadow:0 0 32px rgba(139,92,246,.25)}
+.orbit-chip{border-color:rgba(255,255,255,.15);background:rgba(255,255,255,.05);box-shadow:0 0 12px rgba(139,92,246,.2)}
+.orbit-chip:hover{border-color:rgba(34,211,238,.6);box-shadow:0 0 16px rgba(34,211,238,.4)}
 .btn{display:inline-block;padding:.8rem 1.6rem;border-radius:999px;font-weight:600;background:linear-gradient(90deg,var(--violet),var(--cyan));color:#06091a}
 .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff}
 .mesh{position:fixed;inset:0;z-index:-1;background:radial-gradient(40vw 40vw at 20% 20%,rgba(139,92,246,.25),transparent),radial-gradient(40vw 40vw at 80% 70%,rgba(34,211,238,.18),transparent);animation:drift 18s ease-in-out infinite alternate}
 @keyframes drift{to{transform:translate(4vw,-3vh) scale(1.1)}}
 @keyframes orbit{to{transform:rotate(360deg)}}
+@media (min-width:768px){
+  .orbit-ring{animation:orbit 30s linear infinite}
+  .orbit-chip-label{display:inline-block;animation:orbit 30s linear infinite reverse}
+  .orbit-ring:hover,.orbit-ring:has(.orbit-chip:hover){animation-play-state:paused}
+  .orbit-ring:hover .orbit-chip-label,.orbit-ring:has(.orbit-chip:hover) .orbit-chip-label{animation-play-state:paused}
+}
 .cursor{position:fixed;top:0;left:0;width:14px;height:14px;border-radius:50%;pointer-events:none;z-index:100;background:var(--cyan);box-shadow:0 0 20px 6px rgba(139,92,246,.6);mix-blend-mode:screen}
 @media (hover:none){.cursor{display:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
